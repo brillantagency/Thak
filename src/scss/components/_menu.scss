@@ -1,0 +1,182 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+.all-menu{
+    .social_icon {
+        display: none;
+    }
+    
+    .menu-burger{
+        background-color: variables.$vert;
+        position: fixed;
+        padding: 5%;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        z-index: -1;
+        border-radius: 10px;
+        z-index: 10;
+        width: 95vw;
+        height: fit-content;
+        transition: .3s ease-in-out;
+        transform-origin: top right;
+        border: 1px solid #fff;
+        max-width: 1200px;
+        z-index: 10;
+        visibility: hidden;
+        opacity: 0;
+        z-index: -1;
+    
+        @include tablet{
+            width: 80vw;
+            top: 50%;
+            transform: translate(-50%, -60%);
+        }
+    
+        &:before{
+            background-image: url('https://www.brillant.lu/wp-content/uploads/2024/10/menu.svg');
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            width: 45%;
+            aspect-ratio: 1/1;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 5;
+            @include cover;
+    
+            @include tablet{
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    
+        .nav-burger{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            p{
+                color: variables.$white;
+                font-size: 16px;
+            }
+    
+            .close {
+                width: 35px;
+                aspect-ratio: 1/1;
+                border-radius: 50px;
+                position: relative;
+                background: transparent;
+                border: 0;
+
+                &::before,
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 2px;
+                    height: 20px;
+                    background-color: variables.$white;
+                }
+
+                &::before{
+                    transform: translate(-50%, -50%) rotate(45deg);
+                }
+                &::after{
+                    transform: translate(-50%, -50%) rotate(-45deg);
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    
+        ul{
+            padding-left: 0;
+            list-style: none;
+
+            li{
+                a{
+                    font-size: 2.2rem;
+                    color: variables.$white;
+                    padding: 5px 5px 5px 0px;
+                    font-weight: 600;
+                    transition: .2s ease-in-out;
+                    
+                    &:hover{
+                        color: variables.$vert;
+                    }
+                }
+
+                .menu-active{
+                    color: variables.$vert;
+                }
+    
+                span{
+                    font-size: 1.2rem;
+                    font-weight: 200;
+                    color: variables.$white;
+                    padding: 10px;
+                    position: relative;
+                    margin-left: 20px;
+    
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        height: 90%;
+                        border-radius: 100px;
+                        aspect-ratio: 1/1;
+                        transform: translate(-50%, -50%);
+                        border: 1px solid #BABABA;
+                    }
+                }
+            }
+        }
+    
+        .social {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            margin-top: 60px;
+    
+            p{
+                margin-bottom: 0px;
+                font-size: .8rem;
+                color: #BABABA;
+            }
+    
+            .content-social{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+    
+                ul{
+                    display: flex;
+                    flex-wrap: wrap;
+                    column-gap: 15px;
+                    list-style: none;
+                    padding-left: 0;
+    
+                    li {
+                        a {
+                            font-size: .8rem;
+                            font-weight: 300;
+                            transition: .2s ease-in-out;
+
+                            &:hover{
+                                color: variables.$yellow;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

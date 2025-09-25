@@ -1,0 +1,48 @@
+/* ----------------------------------------------------------------
+	Import
+-----------------------------------------------------------------*/
+
+//-------------------- Config --------------------//
+
+//@use '../../node_modules/sass-rem/rem' as *;
+//@use '../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css' as *;
+//@use '../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css' as *; 
+//@use '../../node_modules/magnific-popup/dist/magnific-popup.css' as *;
+//@use '../../node_modules/aos/dist/aos.css' as *;
+//@use "../../node_modules/slick-carousel/slick/slick.css" as *;
+//@use "../../node_modules/slick-carousel/slick/slick-theme.css" as *;
+
+//--------------------- Base ---------------------//
+@use "base/variables" as *;
+@use "base/mixins" as *;
+@use "base/base" as *;
+@use "base/admin" as *;
+@use "base/typography" as *;
+@use "base/keyframes" as *;
+
+//----------------- Components ------------------//
+@use "components/button" as *; 
+@use "components/cta" as *; 
+@use "components/slick" as *; 
+@use "components/newsletter" as *; 
+@use "components/badge" as *; 
+@use "components/menu" as *; 
+@use "components/form" as *; 
+@use "components/video" as *;
+
+//------------------- Layout --------------------//
+@use "layout/footer" as *;
+@use "layout/single" as *;
+@use "layout/header" as *;
+@use "layout/banner-home" as *;
+@use "layout/banner" as *;
+
+//------------------- Blocks --------------------//
+@use "blocks/block-bigtitle" as *;
+@use "blocks/block-contact" as *;
+@use "blocks/block-projects" as *;
+@use "blocks/block-testimonials" as *;
+@use "blocks/block-text-infinity" as *;
+@use "blocks/block-access" as *;
+@use "blocks/block-cta" as *;
+@use "blocks/block-text-media" as *;

@@ -1,0 +1,218 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+.single-projet{
+    padding: 100px 0px 0px;
+
+
+    .slider-single-job{
+        margin-top: -75px;
+        @include container-universal;
+
+        &--jobs{
+            margin-bottom: 100px;
+        }
+
+        &--bottom{
+            margin-top: 0px
+        }
+
+        .item-slider{
+            background-size: cover;
+            width: 100%;
+            aspect-ratio: 9/13;
+            @include cover;
+            
+            @include tablet{
+                aspect-ratio: 16/12;
+
+            }
+        }
+    }
+
+    .content {
+        &-single .wpcf7 p .wpcf7-form-control-wrap .wpcf7-form-control:focus {
+            outline: 4px solid #ffcfe5;
+            outline-offset: 2px;
+            box-shadow: 0 0 5px #ffcfe5;
+            border-color: #ffcfe5;
+            border: 1px solid #ffcfe5;
+        }
+        
+        &-h1{
+            padding: 25px 0px;
+            position: relative;
+            margin-bottom: 0px!important;
+            @include container-universal;
+            
+            @include large{
+                padding: 0px;
+            }
+
+            h1,
+            span{
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            span{
+                font-size: clamp(1rem, 1.6vw, 24px);
+                color: #7B7B7B;
+                margin: 0px auto 25px;
+                display: block;
+
+            }
+
+            h1{
+                font-size: clamp(3rem, 8.5vw, 128px);
+            }
+
+            .view-website{
+                @include cover;
+                position: absolute;
+                height: 150px;
+                aspect-ratio: 1/1;
+                border-radius: 100px;
+                bottom: -25px;
+                right: -5%;
+                display: none;
+
+                @include tablet{
+                    display: block;
+                }
+            }
+
+            .element{
+                @include cover;
+                position: absolute;
+                height: 125px;
+                aspect-ratio: 12/9;
+                top: -5%;
+                left: -25%;
+                display: none;
+
+                @include tablet{
+                    top: 0%;
+                    left: -7%;
+                    display: block;
+                }
+
+                @include desktop-xl{
+                    left: -5%;
+                }
+
+                &--second{
+                    top: initial;
+
+                    @include tablet{
+                        left: 0%;
+                        bottom: -35%;
+                    }
+        
+                    @include desktop-xl{
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+        &-video {
+            margin-top: -75px!important;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            @include container-universal;
+
+            .video-element {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+            &:hover,
+            .vid {
+                &::-webkit-media-controls,
+                &::-moz-media-controls,
+                &::--ms-media-controls {
+                    display: none !important;
+                }
+            }
+        }
+
+        &-banner-slide{
+            overflow: hidden;
+            padding-bottom: 50px;
+            z-index: 2;
+            position: relative;
+
+            .txt-banner-container{
+                margin-top: 25px;
+                @include tablet{
+                    margin-top: 75px;
+                }
+            }
+        }
+
+        &-stats{
+            @include container-universal;
+
+            h2{
+                text-align: center;
+                font-size: clamp(1.4rem,5vw,36px);
+                margin-bottom: 20px;
+            }
+
+            .stats{
+                padding: 0px 0px 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        
+                .sect-stat{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 25px 75px;
+        
+                    &:last-child{
+                        border-right: none;
+                    }
+        
+                    .picto{
+                        width: 75px;
+                        height: 75px;
+                        color: #7B7B7B;
+                        margin-bottom: 10px;
+                        @include cover;
+                    }
+        
+                    h3{
+                        text-transform: uppercase;
+                        font-size: 2rem;
+                    }
+        
+                    p{
+                        font-size: 14px;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+    
+    .full-img{
+        width: 100%;
+        aspect-ratio: 12/9;
+        @include cover;
+
+        &--container{
+            background-size: cover;
+            aspect-ratio: 16/9;
+            @include container-universal;
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+.block-cta {
+    &-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fddcc8;
+        border-radius: 16px;
+        padding: 80px 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+        position: relative; 
+        z-index: 2;
+        cursor: none;
+
+        .mascotte {
+            position: absolute;
+            width: 0;
+            height: 0;
+            background: url('../images/mascotte.png') no-repeat center center;
+            background-size: contain;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+        }
+
+        &:hover .mascotte {
+            width: 150px;
+            height: 150px;
+            opacity: 1;
+            transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+        }
+    }
+
+    &-title {
+        margin: 0;
+        font-size: 40px;
+        color: #000;
+        line-height: 1.4;
+        text-align: center;
+
+            strong {
+            font-weight: bold;
+            font-size: 50px;
+            color: #000;
+        }
+    }
+}

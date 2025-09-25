@@ -1,0 +1,369 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+.banner-homepage {
+  row-gap: 100px;
+  background-color: #fcae5d;
+  text-align: center;
+  position: relative;
+  width: 100vw;        
+  min-height: 700px;       
+  padding: 0;
+  display: flex;
+  align-items: center; // centre verticalement
+  justify-content: center; // centre horizontalement
+  max-width: 100%;
+  box-sizing: border-box;
+  @media screen and (min-width: 768px) {
+    min-height: 1100px;       
+  }
+  .banner_wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+    position: relative;
+  }
+}
+.banner-images {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+.logo-fond {
+  display: flex;
+  align-items: center; // centre verticalement
+  justify-content: center; // centre horizontalement
+  overflow: visible;
+  width:70%;
+  height: 100%;
+  position: absolute; 
+}
+.main-img {
+  width: 60%;
+  border: 5px solid #fff;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.overlay-img {
+  width: 40%;
+  position: absolute;
+  top: 30px;
+  right: 25%;
+  border: 5px solid #fff;
+}
+
+.acces-card,
+
+  .acces-card-vertical {
+    border: 10px solid #FEC711;
+    box-shadow:
+      0 0 0 8px #C25D0E,
+      0 0 0 2px #FEC711;
+         overflow: visible;
+    z-index: 1;
+ 
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .acces-card-vertical {
+    width:350px;
+    height: 420px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .acces-card.overlay-card {
+    bottom: -50px;
+    width: 50%;
+    left: -50px;
+    border: 10px solid #FEC711;
+    box-shadow:
+      0 0 0 8px #C25D0E,
+      0 0 0 2px #FEC711;
+    overflow:visible;
+  }
+
+  .deco {
+    position: absolute;
+    height: auto;
+    z-index:5;
+    width: 50px ;
+    @media screen and (min-width: 768px) {
+      width: 150px;
+    }
+
+    &.deco-left {
+      bottom: -25px;
+      left: -25px;
+      @media screen and (min-width: 768px) {
+        bottom: -75px;
+        left: -75px;
+      }
+    }
+
+    &.deco-right {
+      top: -25px;
+      right: -25px;
+      @media screen and (min-width: 768px) {
+        top: -75px;
+        right: -45px;
+      }
+    }
+  }
+  .social-icon1 {
+  display: block;
+  width: 30px;height: 30px;
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.banner-homepage .social-media-home {
+  position: absolute;
+  bottom: 0;
+  left: -50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1;
+}
+
+.btn-homepage {
+  bottom: -50px;
+  right: -50px;
+  z-index: 10;
+  position: absolute;
+}
+.centre {
+  right: 38%;
+  z-index: 10;
+  margin-bottom: -10%;
+}
+  .damier-deco {
+  width: 100%;
+  height: 40px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #fcae5d,
+    #fcae5d 40px,
+    white 40px,
+    white 80px
+  );
+}
+.damier-deco-decale {
+  width: 100%;
+  height: 40px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #fcae5d,
+    #fcae5d 40px,
+    white 40px,
+    white 80px
+  );
+  background-position: -40px 0; 
+}
+
+
+.etoile {
+  position: absolute;
+  width: 90px;
+  z-index: 0;
+}
+
+.etoile-left {
+  top: 190px;
+  left: 330px;
+  width: 90px;
+}
+
+.etoile-right {
+  top: 80px;
+  right:20%;
+  width: 120px;
+}
+
+.intro p {
+  font-size: 1rem;
+  line-height: 1.3;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.intro {
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+ 
+}
+
+.intro-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.booking-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
+
+.input-box,
+.booking-button {
+  flex: 1 1 150px; /* Même largeur pour tous */
+  height: 50px;
+  min-width: 150px;
+  max-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.input-box {
+  background-color: white;
+  border: 3px solid #2ecc71;
+  gap: 8px;
+}
+
+.input-box i {
+  color: black;
+}
+
+.booking-button {
+  background-color: #2ecc71;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+
+  @media screen and (max-width: 768px) {
+      .banner {
+    flex-direction: column;
+    height: auto;
+    padding-top: 20px;
+  }
+
+  .banner-images {
+    height: auto;
+    padding-top: 20px;
+  }
+
+  .acces-card-vertical,
+  .acces-card.overlay-card {
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  .logo-fond {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    margin: 0 auto 20px;
+  .deco-left {
+    position: absolute;
+    width: 40px;
+    bottom: -20px;
+    left: 10px; /* Ajuste pour que ça colle bien */
+  }
+
+  .deco-right {
+    position: absolute;
+    width: 35px;
+    top: -20px;
+    right: 10px; /* Ajuste */
+  }
+
+  .etoile-left {
+    position: absolute;
+    width: 40px;
+    top: 100px;
+    left: 20px;
+  }
+
+  .etoile-right {
+    position: absolute;
+    width: 60px;
+    top: 50px;
+    right: 10%;
+  }
+}
+
+.banner-homepage .banner_wrapper {
+    row-gap: 20px;
+  }
+
+  .social-media-home {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0;
+    order: 2;
+  }
+
+  .container {
+    order: 1;
+  }
+
+
+  .booking-form {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    order: 3;
+  }
+
+  .input-box {
+    display: none !important; /* Masque ROOM, FROM, TO */
+  }
+
+  .booking-button {
+    flex: none;
+    width: 200px;
+    max-width: 90%;
+    height: 50px;
+  }
+
+  .style-button {
+    width: 90%;
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
+
+  .style-button.btn-homepage,
+  .style-button.centre {
+    margin: 10px auto;
+    display: block;
+  }
+
+  .style-button.btn-homepage {
+    position: relative;
+    bottom: auto;
+    right: auto;
+  }
+
+  .titre-biais,
+  .testimonials-txt h3 {
+    font-size: 1.6rem;
+  }
+
+  .testimonials-txt p {
+    font-size: 0.95rem;
+  }
+}

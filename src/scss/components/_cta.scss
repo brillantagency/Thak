@@ -1,0 +1,35 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+.cta {
+    &--btn {
+        padding: 10px;
+        border: 1px solid variables.$vert;
+        border-radius: 5px;
+        background-color: variables.$primary;
+    }
+
+    &--primary {
+        background-color: variables.$yellow;
+        font-weight: 500;
+        font-size: 20px;
+        transform: rotate(-7deg);
+        padding: 10px 20px;
+        display: flex;
+        color: #000;
+        margin: auto;
+        animation: shake 3s ease-in-out infinite;
+        transition: background-color .5s ease;
+        justify-content: center;
+        width: fit-content;
+        
+        &:hover {
+            transition: background-color .5s ease;
+            background-color:variables.$yellow;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

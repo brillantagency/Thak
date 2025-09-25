@@ -1,0 +1,132 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+// Contact form 7
+.wpcf7 {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+
+    &-not-valid-tip {
+        font-size: 0.6em;
+    }
+
+    form {
+        .wpcf7-checkbox {
+            .wpcf7-list-item {
+                margin-left: 0;
+            }
+
+            label {
+                display: flex;
+                gap: 10px;
+
+                input {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+		
+		.wpcf7-not-valid-tip {
+			position:absolute;
+			bottom: -25px;
+		}
+
+        .wpcf7-response-output {
+            border: 2px solid variables.$beige;
+            font-size: 0.8em;
+            padding: 1.6em;
+
+            &.invalid .wpcf7-response-output,
+            .payment-required .wpcf7-response-output,
+            .unaccepted .wpcf7-response-output {
+                border-color: #f81919;
+            }
+        }
+
+        input,
+        textarea,
+        select {
+            padding: 10px 25px 10px 15px;
+            border: 1px solid #8e8e8e;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .content-message{
+            margin-top: 20px;
+            position: relative;
+            margin-bottom: 30px;
+
+            @include tablet{
+                margin-bottom: 0;
+            }
+
+            &:before{
+                content: '';
+                position: absolute;
+                background-image: url('../images/thanks.png');
+                width: 6em;
+                transform: rotate(-10deg);
+                aspect-ratio: 16/9;
+                bottom: -20px;
+                right: -10px;
+                z-index: 1;
+                @include cover;
+
+                @include tablet{
+                    width: 175px;
+                }
+            }
+
+            .wpcf7-form-control-wrap{
+                max-width: 100%;
+                width: calc(100% - 20px);
+            }
+        }
+
+        label {
+            width: 100%;
+            font-size: 15px;
+        }
+
+        .content-champs > p {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-wrap: wrap;
+            @include tablet{
+               flex-direction: row;
+            }
+
+            label {
+                @include tablet{
+                    width: calc((50% - 20px));
+                }
+            }
+        }
+
+        .btn-envoyer{
+            margin-top: 10px;
+
+            input{
+                display: inline-block;
+                width: 115px;
+                background-color: #ff7a00;
+                color: #fff;
+                padding: 10px 0px 10px 0px;
+                font-weight: 800;
+                letter-spacing: 1px;
+                border-style: none;
+                text-transform: uppercase;
+                transition: .2s ease-in-out;
+                cursor: pointer;
+
+                &:hover{
+                    transform: rotate(-5deg);
+                }
+            }
+        }
+    }
+}

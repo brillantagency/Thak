@@ -1,0 +1,234 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+.block_projects {
+    display: block;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+
+    @include large{
+        display: flex;
+    }
+
+    .content {
+        flex: 0 0 auto;
+        height: fit-content;
+        padding: 40px 0px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex-direction: column;
+        overflow: hidden;
+        @include cover;
+
+        @include large{
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .txt{
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            z-index: 10;
+
+            h2, h3{
+                text-transform: uppercase;
+                color: variables.$dark;
+                font-weight: bold;
+                background-color: variables.$white;
+            }
+
+            h2{
+                display: inline-block;
+                font-size: 2rem;
+                padding-right: 25px;
+                padding-top: 10px;
+
+                @include tablet{
+                    font-size: 3rem;
+                }
+            }
+
+            h3{
+                display: table;
+                font-size: 2rem;
+                padding: 25px 25px 25px 0px;
+
+                @include tablet{
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+        .element{
+            position: relative;
+            height: 100%;
+            width: 100%;
+
+            @include large{
+                width: 70%;
+                margin: 5% 10% 0% 20%;
+                max-height: 80%
+            }
+
+            .content-img {
+                background-size: cover;
+                width: 100vw;
+                height: 90vh;
+                overflow: hidden;
+                @include cover;
+
+                @include tablet{
+                    width: 100%;
+                    height: 90%;
+                }
+
+                .content-video--slider{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .element-item {
+                display: none;
+                position: absolute;
+                aspect-ratio: 16/9;
+                bottom: -15%;
+                right: 0;
+                @include cover;
+
+                @include large{
+                    display: initial;
+                    height: 55%;
+                }
+
+                @include desktop{
+                    height: 75%;
+                }
+
+                @include desktop-xl{
+                    height: 90%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
+
+                &--meet img {
+                    height: 100%;
+                }
+            }
+        }
+
+        .infos{
+            position: absolute;
+            bottom: 15%;
+            left: 10%;
+            display: flex;
+            flex-direction: column;
+
+            .logo-infos{
+                @include cover;
+                display: none;
+                width: 125px;
+                aspect-ratio: 1/1;
+
+                @include tablet{
+                    display: initial;
+                }
+
+                &--ducati{
+                    width: 75px;
+                    margin-bottom: 20px;
+                }
+
+                &--mokeg{
+                    aspect-ratio: 16/9;
+                }
+            }
+
+            .tags {
+                display: none;
+                background-color: variables.$white;
+                list-style: none;
+                padding-left: 0;
+
+                @include tablet{
+                    display: flex;
+                }
+
+                li{
+                    color: variables.$dark;
+                    padding: 0 10px 0 0;
+                    text-transform: uppercase;
+                    font-weight: bold;
+
+                    &:first-child{
+                        padding-left: 0px;
+                    }
+                }
+            }
+        }
+
+        .content-txt{
+            display: flex;
+            justify-content: space-between;
+            width: 90vw;
+            align-items: flex-start;
+            color: variables.$dark;
+            margin-top: 20px;
+            flex-direction: column;
+
+            @include tablet{
+                flex-direction: row;
+            }
+
+            h2{
+                font-size: clamp(1.6em, 4vw, 32px);
+            }
+
+            span{
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+        }
+
+        .stic-projet{
+            height: 90%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            display: block;
+
+             img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+             }
+        }
+    }
+
+    .marquee-projet {
+        margin-top: 60px;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100vw;
+        display: block;
+        
+        @include large{
+            width: 100vw;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: clamp(5rem, 10vw, 160px);
+            display: inline-block;
+            color: variables.$orange;
+        }
+    }
+}
