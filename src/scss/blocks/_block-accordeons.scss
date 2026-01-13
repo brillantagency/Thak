@@ -20,10 +20,10 @@
                 }
 
                 &_intro {
-                    @include tablet {
+                    /*@include tablet {
                         position: sticky;
-                        top: 100px;
-                    }
+                        top: 160px;
+                    }*/
                 }
             }
         }
@@ -35,12 +35,12 @@
     }
 
     .accordeon {
-        position: sticky;
         margin-bottom: 20px;;
         border: 2px solid variables.$dark;
         box-shadow: 9px -6px variables.$dark;
         border-radius: 10px;
-        top: 30px;
+        top: 180px;
+        position: sticky;
 
         &.active {
             span::after {
@@ -57,6 +57,7 @@
                 border-bottom-right-radius: 0;
                 background-color: variables.$yellow;
                 border-bottom: 2px solid variables.$dark;
+                font-family: initial;
                 transition : background-color 0.3s ease-in-out border-radius 0.3s ease-in-out;
             }
 
@@ -82,6 +83,7 @@
         &s {
             &_title {
                 margin-top: 0;
+                margin-bottom: 0;
             }
 
             &_intro {
@@ -94,7 +96,14 @@
 
             &_intro,
             &_repeater {
-                width: 100%;
+                --offset: 160px;
+
+                @include tablet {
+                    width: 100%;
+                    position: sticky;
+                    top: var(--offset);
+                    height: fit-content;
+                }
             }
         }
 
@@ -114,7 +123,7 @@
             align-items: center;
 
             &:hover {
-                background-color: variables.$orange;
+                background-color: variables.$yellow;
                 transition: background-color 0.3s ease-in-out;
 
                 .accordeon_button_fake::after,
@@ -123,18 +132,33 @@
                 }
             }
 
-            span:first-child {
-                display: flex;
-                gap: 10px;
-                flex-direction: column;
-                align-items: flex-start;
+            span {
+            	font-family: "Poppins", sans-serif;
+
+
+                &:not(.accordeon_button_fake) {
+                    &::before {
+                        content: none;
+                    }
+
+                    &:after {
+                        content: none;
+                    }
+                }
+
+                &:first-child {
+                    display: flex;
+                    gap: 10px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
             }
 
             &_tag {
                 font-size: 0.7rem;
                 line-height: 2;
                 text-transform: uppercase;
-                background-color: variables.$lightgrey;
+                background-color: variables.$yellow;
                 color: variables.$dark;
                 padding: 0 8px;
                 border-radius: 5px;
@@ -148,6 +172,7 @@
                 position: relative;
                 background-color: variables.$yellow;
                 border-radius: 50rem;
+                z-index: 1;
 
                 &::after,
                 &::before {

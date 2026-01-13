@@ -1,12 +1,13 @@
 <?php 
+
     $accordeons_title    = get_sub_field('block_accordeons_accordeons_title');
     $accordeons_cta      = get_sub_field('block_accordeons_accordeons_button');
     $accordeons_text     = get_sub_field('block_accordeons_accordeons_text');
     $accordeons_repeater = get_sub_field('block_accordeons_accordeons_repeater');
 
     // Styles
-    $accordeons_actif      = get_sub_field('block_accordeons_component_actif');
-    $accordeons_padding    = get_sub_field('block_accordeons_component_padding');
+    $accordeons_actif      = get_sub_field('block_accordeons_accordeons_actif');
+    $accordeons_padding    = get_sub_field('block_accordeons_accordeons_padding');
     $accordeons_link_style = get_sub_field('block_accordeons_accordeons_link_style');
     $accordeons_direction  = get_sub_field('block_accordeons_accordeons_flex_direction');
 
