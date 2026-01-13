@@ -40,10 +40,16 @@
     }
   }
 
+  .style-button {
+    position: relative;
+    z-index: 4;
+  }
+
   .deco {
     &-left {
       bottom: -25px;
       left: -25px;
+      z-index: 3;
 
       @media screen and (min-width: 768px) {
         bottom: -75px;
@@ -156,6 +162,12 @@
       top: 50%;
       width: 100%;
     }
+
+    &__track {
+      padding: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
   }
 
   .style-button  {
@@ -163,7 +175,7 @@
   }
 
   &_title {
-    color: variables.$black;
+    color: variables.$beige;
     font-size: 2rem;
     margin-bottom: 0;
     margin-top: 0;
