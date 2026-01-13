@@ -20,7 +20,7 @@
     if($accordeons_actif) :
 ?>
 
-<<?php echo $tag; ?> class="block_accordeons flex_direction_<?php echo $accordeons_direction? 'column' : 'row'; ?> container p-<?php echo $accordeons_padding; ?>">
+<<?php echo $tag; ?> class="block_accordeons flex_direction_<?php echo $accordeons_direction? 'column' : 'row'; ?> container section_padding_<?php echo $accordeons_padding; ?>">
     <div class="accordeons_intro">
         <?php if(!empty($accordeons_title)) : ?>
         <h2 class="accordeons_title"><?php echo $accordeons_title; ?></h2>
