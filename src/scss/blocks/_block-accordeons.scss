@@ -1,0 +1,171 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+.block_accordeons {
+    display: flex;
+    gap: 20px;
+    min-height: 500px;
+
+    @include tablet {
+        align-items: flex-start;
+        gap: 50px;
+    }
+
+    &.flex_direction{
+        &_row  {
+            .accordeons {
+                &_intro,
+                &_repeater {
+                    flex: 1;
+                }
+
+                &_intro {
+                    @include tablet {
+                        position: sticky;
+                        top: 100px;
+                    }
+                }
+            }
+        }
+
+        &_column {
+            max-width: 1000px;
+            margin: auto;
+        }
+    }
+
+    .accordeon {
+        position: sticky;
+        margin-bottom: 20px;;
+        border: 2px solid variables.$dark;
+        box-shadow: 9px -6px variables.$dark;
+        border-radius: 10px;
+        top: 30px;
+
+        &.active {
+            span::after {
+                transform: rotate(0);
+                transition: rotate 0.3s ease-in-out;
+            }
+
+            .accordeon_title {
+                color: variables.$white;
+            }
+
+            .accordeon_button {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                background-color: variables.$yellow;
+                border-bottom: 2px solid variables.$dark;
+                transition : background-color 0.3s ease-in-out border-radius 0.3s ease-in-out;
+            }
+
+            .accordeon_text {
+                height: 100%;
+                min-height: 100%;
+                margin-bottom: 20px;
+                transition : height 0.3s ease-in-out, min-height 0.3s ease-in-out,  margin-bottom 0.3s ease-in-out;
+            }
+        }
+
+        &_text {
+            height: 0;
+            min-height: 0;
+            overflow: hidden;
+            margin-top: 0;
+            transition : height 0.3s ease-in-out, min-height 0.3s ease-in-out, margin-bottom 0.3s ease-in-out;
+            padding: 0 20px;
+            margin-bottom: 0;
+            border-radius: 10px;
+        }
+
+        &s {
+            &_title {
+                margin-top: 0;
+            }
+
+            &_intro {
+                align-self: flex-start;
+            }
+
+            &_content {
+                margin-bottom: 20px;
+            }
+
+            &_intro,
+            &_repeater {
+                width: 100%;
+            }
+        }
+
+        &_button {
+            background-color: transparent;
+            border: 0;
+            text-align: left;
+            background-color: variables.$white;
+            padding: 15px 20px;
+            font-weight: 700;
+            border-radius: 10px;
+            width: 100%;
+            gap: 20px;
+            transition: background-color 0.3s ease-in-out;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:hover {
+                background-color: variables.$orange;
+                transition: background-color 0.3s ease-in-out;
+
+                .accordeon_button_fake::after,
+                .accordeon_button_fake::before {
+                    background-color: variables.$dark;
+                }
+            }
+
+            span:first-child {
+                display: flex;
+                gap: 10px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            &_tag {
+                font-size: 0.7rem;
+                line-height: 2;
+                text-transform: uppercase;
+                background-color: variables.$lightgrey;
+                color: variables.$dark;
+                padding: 0 8px;
+                border-radius: 5px;
+            }
+
+            &_fake {
+                height: 35px;
+                width: 35px;
+                min-width: 35px;
+                display: block;
+                position: relative;
+                background-color: variables.$yellow;
+                border-radius: 50rem;
+
+                &::after,
+                &::before {
+                    content: '';
+                    display: block;
+                    height: 4px;
+                    position: absolute;
+                    background-color: variables.$dark;
+                    width: 20px;
+                    border-radius: 50rem;
+                    left: 7.5px;
+                    top: 15px;
+                }
+
+                &::after {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}

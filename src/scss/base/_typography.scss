@@ -1,30 +1,19 @@
-/* ----------------------------------------------------------------
-	Fonts
------------------------------------------------------------------*/
-
-
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6 {
-     font-family: "Lilita One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    line-height: 0.2em;
-    letter-spacing: 0.022em;
-    
-   
+    font-family: 'Lilita One', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
 }
+
 h3,
 .h3 {
     font-size: 40px;
-    
 }
+
 h2,
 .h2 {
     font-size: clamp(2rem, 6vw, 64px);
     font-weight: 400;
     line-height: 122%;
-}
-
-p {
-    line-height: 1.3;
 }

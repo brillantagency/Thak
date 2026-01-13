@@ -1,123 +1,220 @@
-function infinityCopy() {
+function infinityText() {
     gsap.registerPlugin(ScrollTrigger);
-
-    const txtBanner = document.querySelector('.text_infinity-js');
-    const txtBannerP = document.querySelector('.text_infinity-js p');
-
-    if (txtBanner) {
-        const txtBannerWidth = txtBanner.offsetWidth;
-
-        gsap.to('.text_infinity-js, .text_infinity_copy', {
-            x: -txtBannerWidth,
+    const e = document.querySelector(".text_infinity-js")
+      , t = document.querySelectorAll(".text_infinity_text, .text_infinity_text_copy");
+    if (e && t.length) {
+        const n = t[0].offsetWidth;
+        gsap.to(t, {
+            x: -n,
             ease: "linear",
             repeat: -1,
             duration: 25,
-        });
-
-        gsap.to(txtBanner, {
+            modifiers: {
+                x: gsap.utils.unitize((e => parseFloat(e) % -n))
+            }
+        }),
+        gsap.to(e, {
             scrollTrigger: {
-                trigger: ".text_infinity-js",
+                trigger: e,
                 start: "top 80%",
                 end: "10% 78%",
-                scrub: .5,
+                scrub: .5
             },
             rotation: -2,
-            ease: "ease",
-        });
-
-        if (txtBannerP) {
-            gsap.to(txtBannerP, {
-                x: "-45%",
-                ease: "ease",
-                scrollTrigger: {
-                    trigger: ".text_infinity-js",
-                    start: "0% 50%",
-                    end: "80% 50%",
-                    scrub: 1,
-                }
-            });
+            ease: "ease"
+        })
+    }
+}
+function addClassOnScroll() {
+    window.addEventListener("scroll", ( () => {
+        window.scrollY > 0 ? document.body.classList.add("scrolled") : document.body.classList.remove("scrolled")
+    }
+    ))
+}
+function sliderTextMedia() {
+    document.querySelectorAll(".slider2").forEach(( (e, t) => {
+        const n = document.querySelectorAll(".slider1")[t]
+          , o = e.querySelectorAll(".splide__slide").length;
+        n && n.querySelectorAll(".splide__slide").length;
+        let l, r;
+        n && (l = new Splide(n,{
+            type: "loop",
+            perPage: 1,
+            arrows: !1,
+            pagination: !1,
+            autoplay: !0,
+            speed: 400
+        })),
+        r = new Splide(e,{
+            type: "loop",
+            perPage: 1,
+            arrows: o > 1,
+            pagination: !1,
+            drag: o > 1,
+            autoplay: !0,
+            speed: 400,
+            gap: "29px"
+        }),
+        l && l.sync(r),
+        l && l.mount(),
+        r.mount()
+    }
+    ))
+}
+function sliderBanner1() {
+    const e = document.querySelectorAll(".banner_image_1-js");
+    e.length && e.forEach((e => {
+        if (e) {
+            const t = e.querySelectorAll(".splide__slide");
+            new Splide(e,{
+                type: "loop",
+                perPage: 1,
+                perMove: 1,
+                arrows: t.length > 1,
+                draggable: t.length > 1,
+                pagination: !1,
+                speed: 300,
+                autoplay: !0
+            }).mount()
         }
     }
+    ))
 }
-
-function slider() {
-    $('.slider').slick({
-        dots: false,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 2.4,
-        centerMode: false,
-        arrows: true,
-        prevArrow: '.prev',
-        nextArrow: '.next',
-        responsive: [
-            { breakpoint: 4000, settings: { slidesToShow: 4, arrows: true } },
-            { breakpoint: 3000, settings: { slidesToShow: 3, arrows: true } },
-            { breakpoint: 2000, settings: { slidesToShow: 2, arrows: true } },
-            { breakpoint: 1260, settings: { slidesToShow: 1, arrows: true } },
-        ]
-    });
-}
-
-function burgerMenu() {
-    const burger = document.getElementById("burger");
-    const overlay = document.getElementById("overlay-menu");
-    const closeBtn = document.getElementById("close-btn");
-
-    burger.addEventListener("click", () => {
-        console.log('click open');
-        document.body.classList.toggle('classe-du-body');
-    });
-
-    closeBtn.addEventListener("click", () => {
-        console.log('click close');
-        document.body.classList.remove('classe-du-body');
-    });
-}
-
-function scrollAnchor() {
-  // Gestion des clics sur les liens internes avec ancre
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        const headerOffset = 100; // ajuste si tu as un header sticky
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-
-        history.pushState(null, null, this.getAttribute("href"));
-      }
-    });
-  });
-
-  // Scroll vers l'ancre si hash présent dans l'URL (depuis une autre page)
-  window.addEventListener("load", function() {
-    const hash = window.location.hash;
-    if (hash) {
-      const target = document.querySelector(hash);
-      if (target) {
-        const headerOffset = 100; // même offset pour header sticky
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-      }
+function sliderBanner2() {
+    const e = document.querySelectorAll(".banner_image_2-js");
+    e.length && e.forEach((e => {
+        if (e) {
+            const t = e.querySelectorAll(".splide__slide");
+            new Splide(e,{
+                type: "loop",
+                perPage: 1,
+                perMove: 1,
+                arrows: t.length > 1,
+                draggable: t.length > 1,
+                pagination: !1,
+                speed: 300,
+                autoplay: !0
+            }).mount()
+        }
     }
-  });
+    ))
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    infinityCopy();
-    burgerMenu();
-    slider();
-	scrollAnchor();
-});
+function burgerMenu() {
+    const e = document.getElementById("burger")
+      , t = document.getElementById("overlay-menu")
+      , n = document.getElementById("close-btn");
+    e && e.addEventListener("click", ( () => {
+        document.body.classList.toggle("menu-open"),
+        t?.classList.toggle("open")
+    }
+    )),
+    n && n.addEventListener("click", ( () => {
+        document.body.classList.remove("menu-open"),
+        t?.classList.remove("open")
+    }
+    ))
+}
+function gravityCta() {
+    let e = document.querySelectorAll(".block-cta_link");
+    e.length && e.forEach((e => {
+        const t = e.querySelector(".mascotte");
+        e.addEventListener("mousemove", (n => {
+            const o = e.getBoundingClientRect()
+              , l = o.width / 2
+              , r = o.height / 2
+              , s = n.clientX - o.left - l
+              , i = n.clientY - o.top - r
+              , a = Math.sqrt(s * s + i * i)
+              , c = (1 - a / l) * a
+              , d = Math.atan2(i, s)
+              , u = Math.cos(d) * c + n.clientX - o.left
+              , p = Math.sin(d) * c + n.clientY - o.top
+              , g = c / a + .25;
+            t.style.setProperty("--tx", `${u}px`),
+            t.style.setProperty("--ty", `${p}px`),
+            t.style.setProperty("--opacity", g)
+        }
+        )),
+        e.addEventListener("mouseleave", ( () => {
+            t.style.setProperty("--tx", "0px"),
+            t.style.setProperty("--ty", "0px"),
+            t.style.setProperty("--opacity", "0")
+        }
+        ))
+    }
+    ))
+}
+function submenuOpen() {
+    document.querySelectorAll(".main-nav li.menu-item-has-children").forEach((e => {
+        const t = e.querySelector("a")
+          , n = e.querySelector("ul.sub-menu")
+          , o = document.createElement("button");
+        o.classList.add("sub-menu-toggle"),
+        o.innerHTML = "▾",
+        t.insertAdjacentElement("afterend", o),
+        o.addEventListener("click", (e => {
+            e.preventDefault(),
+            t.classList.toggle("sub-menu-open")
+        }
+        )),
+        [t, n].forEach((e => {
+            e && e.addEventListener("mouseenter", ( () => {
+                t.classList.add("sub-menu-open")
+            }
+            ))
+        }
+        )),
+        [t, n].forEach((e => {
+            e && e.addEventListener("mouseleave", ( () => {
+                t.classList.remove("sub-menu-open")
+            }
+            ))
+        }
+        ))
+    }
+    ))
+}
+function scrollAnchor() {
+    document.querySelectorAll('a[href^="#"]').forEach((e => {
+        e.addEventListener("click", (t => {
+            t.preventDefault();
+            const n = document.querySelector(e.getAttribute("href"));
+            if (n) {
+                const o = 100
+                  , l = n.getBoundingClientRect().top + window.pageYOffset - o;
+                window.scrollTo({
+                    top: l,
+                    behavior: "smooth"
+                })
+            }
+            history.pushState(null, null, e.getAttribute("href"))
+        }
+        ))
+    }
+    )),
+    window.addEventListener("load", ( () => {
+        const e = window.location.hash;
+        if (e) {
+            const t = document.querySelector(e);
+            t && (o = 100,
+            l = t.getBoundingClientRect().top + window.pageYOffset - o,
+            window.scrollTo({
+                top: l,
+                behavior: "smooth"
+            }))
+        }
+    }
+    ))
+}
+document.addEventListener("DOMContentLoaded", (function() {
+    infinityText(),
+    burgerMenu(),
+    sliderTextMedia(),
+    gravityCta(),
+    sliderBanner2(),
+    sliderBanner1(),
+    addClassOnScroll(),
+    submenuOpen(),
+    scrollAnchor()
+}
+));

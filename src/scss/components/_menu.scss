@@ -7,7 +7,7 @@
     }
     
     .menu-burger{
-        background-color: variables.$vert;
+        background-color: variables.$green;
         position: fixed;
         padding: 5%;
         top: 80%;
@@ -109,12 +109,12 @@
                     transition: .2s ease-in-out;
                     
                     &:hover{
-                        color: variables.$vert;
+                        color: variables.$green;
                     }
                 }
 
                 .menu-active{
-                    color: variables.$vert;
+                    color: variables.$green;
                 }
     
                 span{
