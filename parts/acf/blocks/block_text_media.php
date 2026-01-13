@@ -75,8 +75,13 @@ if($text_media_actif) :
               include get_template_directory() . '/parts/components/video.php';
             endif; ?>
 
-            <?php if ( !empty($text_media_gallery) or !empty($video_embed) or !empty($video_upload) and !empty( $text_media_icon['url'] ) ) : ?>
-            <img src="<?php echo $text_media_icon['url']; ?>" alt="<?php echo $text_media_icon['alt']; ?>" class="text_media-icon text_media-icon-media" />
+            <?php
+            if ((!empty($text_media_gallery) || !empty($video_embed) || !empty($video_upload)) 
+                || (isset($text_media_icon['url']) && !empty($text_media_icon['url'])) ) :
+            ?>
+                <img src="<?php echo esc_url($text_media_icon['url']); ?>" 
+                    alt="<?php echo esc_attr($text_media_icon['alt'] ?? ''); ?>" 
+                    class="text_media-icon text_media-icon-media" />
             <?php endif; ?>
           </div>
           <?php endif; ?>

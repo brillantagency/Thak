@@ -1,9 +1,12 @@
-.contact {
-  &-section {
-    position: relative;
+@use "../base/variables" as variables;
+
+.block_contact {
+  position: relative;
+  overflow: hidden;
+  
+  &_pattern_bottom {
     padding-bottom: 80px;
-    overflow: hidden;
-    
+
     &::before,
     &::after {
       content: "";
@@ -11,18 +14,18 @@
       width: 100%;
       height: 40px;
       left: 0;
+      z-index: 1;
       background-image: repeating-linear-gradient(
         90deg,
         #9ee7b4,
         #9ee7b4 40px,
-        white 40px,
-        white 80px
+        variables.$white 40px,
+        variables.$white 80px
       );
     }
 
     &::before {
       bottom: 0;
-      z-index: 1;
     }
 
     &::after {
@@ -31,18 +34,12 @@
     }
   }
 
-    &-map {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-
-    &-container {
-      position: relative;
-      width: 100vw;
-      min-height: 650px;
-    }
+  &_map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
     iframe {
       width: 100%;
@@ -51,13 +48,55 @@
     }
   }
 
-  &-box {
+  &_wrapper {
+    position: relative;
+    width: 100vw;
+    min-height: 650px;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      height: auto;
+      display: flex;
+      min-height: auto;
+    }
+  }
+
+  &_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &_item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-weight: 700;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &_link {
+    display: block;
+
+    &:hover {
+      color: variables.$green;
+    }
+  }
+
+  &_box {
     position: absolute;
     top: 50%;
     left: 20%;
     transform: translate(-50%, -50%);
     background: #fff;
-    border: 3px solid #ff7f00;
+    border: 3px solid variables.$orange;
     border-radius: 20px;
     padding: 20px;
     max-width: 400px;
@@ -65,63 +104,48 @@
     font-weight: bold;
     z-index: 10;
 
-    h2{
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      margin-top: -65px;
-      position: absolute;
-      padding: 10px;
-      left: 0;
-      z-index: 5;
-      padding-left: 20px;
-    }
-
-    p {
-      line-height: 1.5;
-      margin-bottom: 15px;
-    }
-
-    p:not(.contact-phones) {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    a {
-      display: block
+    @media screen and (max-width: 768px) {
+      position: relative; 
+      transform: none; 
+      order: 1; 
+      margin: 0 auto -70px auto;
+      max-width: 90%;
+      left: auto;
+      top: auto;
     }
 
     i {
       flex-shrink: 0;
       margin-top: 2px;
       font-size: 1.2rem;
-      color: orange;
+      color: variables.$orange;
     }
+  }
+
+  &_title{
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    margin-top: -65px;
+    position: absolute;
+    padding: 10px;
+    left: 0;
+    z-index: 5;
+    padding-left: 20px;
   }
 }
 
-@media (max-width: 1014px) {
-  .contact-map-container {
-    flex-direction: column;
-    height: auto; /* hauteur automatique */
-  }
-  .contact-map {
-    position: relative; /* plus absolute */
-    order: 2;          /* carte en bas */
-    height: 300px;     /* hauteur fixe */
-  }
-  .contact-box {
-    position: relative; /* plus absolute */
-    transform: none;    /* annuler translate */
-    order: 1;           /* contact en haut */
-    max-width: 100%;
-    margin: 10px auto;
-    left: auto;
-    top: auto;
-  }
-  .contact-box h2 {
-    position: relative;
-    margin-top: 0;
-    padding-left: 0;
+@media (max-width: 768px) {
+  .block_contact {
+    &_map {
+      position: relative;
+      order: 2;
+      height: 300px; 
+    }
+
+    &_title {
+      position: relative;
+      margin-top: 0;
+      padding-left: 0;
+    }
   }
 }

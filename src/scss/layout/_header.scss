@@ -1,98 +1,112 @@
 @use "../base/variables" as variables;
 @use "../base/mixins" as *;
 
-// === GENERAL ===
+body.scrolled {
+  header {
+    .logothak {
+      margin-bottom: 0;
+      transition: margin-bottom 0.3s ease;
 
-// === HEADER GLOBAL ===
+      img {
+        width: 180px;
+        transition: width 0.3s ease;
+      }
+    }
+  }
+}
+
 header {
-  padding-top: 15px;
   width: 100vw;
   height: 100px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 15;
-  background-color: #ffffff;
+  background-color: variables.$white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  .container-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    height: 100px;
+  .nav-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: variables.$orange;
 
-    // Colonne de gauche (Francine & Suzanne + burger)
-    .header-left {
+    &:hover {
+      color: variables.$green;
+    }
+  }
+
+  .menu-item-has-children {
+    position: relative;
+
+    & > a.sub-menu-open ~ .sub-menu {
+      transition: max-height 0.5s ease 0.3s, opacity 0.3s ease;
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .sub-menu {
+      transition: max-height 0.5s ease 0.3s, opacity 0.3s ease;
+      overflow: hidden;
+      max-height: 0;
+      width: 100%;
+      opacity: 0;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      a {
+        font-size: 1.5rem;
+      }
+
+      &-toggle {
+        background: none;
+        border: none;
+        color: variables.$white;
+        margin-left: 5px;
+        font-size: 1em;
+        width: 50px;
+        height: 60px;
+        position: absolute;
+
+        &:hover {
+          color: variables.$yellow;
+        }
+      }
+    }
+  }
+
+  .header {
+    &-left {
       display: flex;
       align-items: center;
       gap: 1rem;
 
-      .header-name-left {
+      &-name {
         display: flex;
         flex-direction: row;
         gap: 0.8rem;
-
-        .nav-link {
-          text-decoration: none;
-          font-weight: bold;
-          color: #000;
-
-          &.francine {
-            color: #EB6034;
-          }
-
-          &.suzanne {
-            color: #EB6034;
-          }
-        }
       }
     }
 
-    // Logo centré
-    .logothak {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: -50px;
-
-      img {
-        width: 300px;
-        height: auto;
-      }
-    }
-
-    // Colonne de droite (Brigitte & Marie Christine + bouton réserver)
-    .header-right {
+    &-right {
       display: flex;
       align-items: center;
       justify-content: flex-end;
       gap: 1rem;
 
-      .header-name-right {
+      &-name {
         display: flex;
         flex-direction: row;
         gap: 0.8rem;
-
-        .nav-link {
-          text-decoration: none;
-          font-weight: bold;
-          color: #000;
-
-          &.brigitte {
-            color: #EB6034;
-          }
-
-          &.marie-christine {
-            color: #EB6034;
-          }
-        }
       }
 
       .booking {
         width: 50px;
-        margin-left: 2rem;
+        height: 50px;
 
         .reserver {
           display: inline-block;
@@ -101,6 +115,37 @@ header {
             width: 50px;
             height: auto;
           }
+
+          &:hover {
+            img {
+              filter: invert(100%) sepia(100%) hue-rotate(180deg);
+              transition: filter 0.3s ease;
+            }
+          }
+        }
+      }
+    }
+
+    &-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-content: space-between;
+      align-items: center;
+      height: 100px;
+      width: 100%;
+
+      .logothak {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: -50px;
+        transition: margin-bottom 0.3s ease;
+
+        img {
+          width: 300px;
+          height: auto;
+          transition: width 0.3s ease;
         }
       }
     }
@@ -112,20 +157,38 @@ header {
     align-items: center;
 
     .burger {
-      background-color: white;
-      color: #37be74;
+      background-color: variables.$white;
+      color: variables.$green;
       border: none;
       font-size: 2rem;
       padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 4px;
-      display: block; // Toujours visible
+      display: block;
+
+      &:hover {
+        color: variables.$yellow;
+      }
     }
   }
 }
 
-.classe-du-body .overlay-menu-container {
-  top: 0!important;
+body.menu-open {
+	transition: .2s ease-in-out;
+	overflow: hidden;
+
+	&::before{
+		content: '';
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(255, 255, 255, 0);
+		backdrop-filter: blur(5px);
+		z-index: 11;
+		transition: .2s ease-in-out;
+	}
+
+  .overlay-menu-container {
+    top: 0!important;
+  }
 }
 
 // === MENU BURGER OVERLAY ===
@@ -134,9 +197,10 @@ header {
   position: relative;
   max-width: 1000px;
   height: 100%;
-  background-color: #EB6034;
-  border: orange 30px solid;
-  color: white;
+  background: linear-gradient(rgba(255, 122, 0, 0.5), rgba(255, 122, 0, 0.5)),
+    url("../images/menu_fond-min.jpg") center/cover no-repeat;;
+  border: variables.$yellow 30px solid;
+  color: variables.$white;
   z-index: 100;
   display: flex;
   align-items: flex-start;
@@ -148,8 +212,27 @@ header {
   opacity: 0;
   pointer-events: none;
   transition: transform 0.4s ease, opacity 0.4s ease;
+
   @media (max-width: 1024px) {
     flex-direction: column;
+  }
+
+  @media (max-width: 768px) {
+    width: 90vw;
+    border-width: 15px;
+    padding: 2.4em 1em;
+  }
+
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: calc(-100vh - 100px);
+    left: 0;
+    padding-top: 50px;
+    width: 100%;
+    min-height: 100%; 
   }
 
   &.open {
@@ -157,15 +240,32 @@ header {
     pointer-events: auto;
   }
 
+  .nav {
+    @media (min-width: 768px) {
+      flex: 2;
+    }
+  }
+
   .close-btn {
     position: absolute;
     top: 20px;
-    right: 30px;
+    right: 20px;
     background: none;
     border: none;
     font-size: 2.5rem;
-    color: white;
+    color: variables.$white;
     cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      top: 10px;
+      right: 10px;
+    }
   }
 
   ul {
@@ -180,10 +280,14 @@ header {
         font-size: 2rem;
         font-weight: bold;
         text-decoration: none;
-        color: white;
+        color: variables.$white;
+
+        @media (max-width: 768px) {
+          font-size: 1.5rem;
+        }
 
         &:hover {
-         color:#FEC711;
+         color:variables.$yellow;
         }
       }
     }
@@ -197,14 +301,14 @@ header {
     .burger-dropdown-btn {
       background: none;
       border: none;
-      color: white;
+      color: variables.$white;
       font-size: 2rem;
       font-weight: bold;
       cursor: pointer;
       margin-bottom: 0.5rem;
 
       &:hover {
-        color:#FEC711;
+        color:variables.$yellow;
       }
     }
 
@@ -219,11 +323,11 @@ header {
 
         a {
           font-size: 1.6rem;
-          color: white;
+          color: variables.$white;
           text-decoration: none;
 
           &:hover {
-          color: #FEC711;
+          color: variables.$yellow;
           }
         }
       }
@@ -233,21 +337,33 @@ header {
       display: flex;
     }
   }
+
  .menu-contact {
   margin-top: auto;
-  align-self: flex-end;
-  text-align: right;
-  font-size: 1.4rem;
-  padding-top: 2rem;
+  font-size: 1rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    text-align: right;
+    flex: 1;
+  }
 
   .social-media-home {
     display: flex;
     gap: 20px;
-    justify-content: flex-end;
 
-    svg path {
-      fill: white;
-      transition: fill 0.3s ease;
+    @media (min-width: 768px) {
+      justify-content: flex-end;
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+
+       path {
+        fill: variables.$white;
+        transition: fill 0.3s ease;
+      }
     }
 
     a:hover svg path {
@@ -257,60 +373,52 @@ header {
   }
 
   a {
-    color: white;
+    color: variables.$white;
     text-decoration: none;
 
     &:hover {
-      color: #FEC711;
+      color: variables.$yellow;
     }
   }
 
   p {
     margin: 0.3rem 0;
   }
+  }
 }
 
-}
-
-// === MEDIA QUERY RESPONSIVE ===
 @media (max-width: 1024px) {
-  body,
-  html {
-    overflow-x: hidden;
-  }
-
-  .container-header {
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 0 1rem;
-    height: auto;
-    width: 100%;
-  }
-
-  // Cacher uniquement les liens de noms à gauche et à droite
-  .header-name-left,
-  .header-name-right {
-    display: none !important;
-  }
-
-
-  .booking {
-    display: block !important;
-  }
-
- 
-  .logothak {
-    grid-column: 2 / 3;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center;
-    margin: 0 auto !important;
-    margin-bottom: 0;
-
-    img {
-      width: 180px !important;
+  .header {
+    &-container {
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 0 1rem;
       height: auto;
+      width: 100%;
+
+      .logothak {
+        grid-column: 2 / 3;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center;
+        margin: 0 auto !important;
+        margin-bottom: 0;
+
+        img {
+          width: 180px !important;
+          height: auto;
+        }
+      }
+    }
+
+    &-left-name,
+    &-right-name {
+      display: none !important;
+    }
+
+    &-right {
+      .booking {
+        display: block !important;
+      }
     }
   }
-
- 
 }

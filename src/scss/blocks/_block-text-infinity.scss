@@ -2,15 +2,19 @@
 @use "../base/mixins" as *;
 
 .block_text_infinity  {
+    overflow: hidden;
+
     &.text_infinity {
-        transform: rotate(360deg);
         overflow: hidden;
         white-space: nowrap;
         position: relative;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         width: 100%;
         z-index: 9;
+        overflow: hidden;
+        white-space: nowrap;
 
         &_bg {
             &_yellow {
@@ -23,9 +27,11 @@
                 background-color: variables.$orange;
             }
         }
+    }
 
-        &,
-        &-copy {
+    .text_infinity {
+        &_text,
+        &_text_copy {
             width: auto;
             height: fit-content;
             position: relative;

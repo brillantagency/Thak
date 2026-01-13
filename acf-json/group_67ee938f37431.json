@@ -113,38 +113,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_682f227cda380": {
-                    "key": "layout_682f227cda380",
-                    "name": "block_expertise",
-                    "label": "Expertise",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_682f227cda382",
-                            "label": "Expertise",
-                            "name": "block_expertise",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_682f21eee0d2a"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 1
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_682f338e8ffce": {
                     "key": "layout_682f338e8ffce",
                     "name": "block_testimonials",
@@ -241,38 +209,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_68308c34928b4": {
-                    "key": "layout_68308c34928b4",
-                    "name": "block_reassurances",
-                    "label": "Reassurances",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_68308c34928b6",
-                            "label": "Reassurances",
-                            "name": "block_reassurances",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_68308b9b86ad2"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 1
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_67ee939f7422c": {
                     "key": "layout_67ee939f7422c",
                     "name": "block_contact",
@@ -304,6 +240,38 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_69651143dfc87": {
+                    "key": "layout_69651143dfc87",
+                    "name": "block_accordeons",
+                    "label": "Accordeons",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_69651143dfc89",
+                            "label": "Accordeons",
+                            "name": "block_accordeons",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6911c6a01076c"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 1
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -323,7 +291,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "project"
+                "value": "post"
             }
         ],
         [
@@ -345,5 +313,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755164492
+    "display_title": "",
+    "modified": 1768231383
 }

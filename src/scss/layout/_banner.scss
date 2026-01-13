@@ -1,50 +1,169 @@
-  
+@use "../base/variables" as variables;
+
+
 .banner {
+  background-color: variables.$orangelight;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fcae5d;
   text-align: center;
   position: relative;
   width: 100vw;        
-  padding: 150px 0 180px 0;
+  min-height: calc(100vh - 30px);       
+  padding: 0;
+  max-width: 100%;
 
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
+  &_gallery_image {
     width: 100%;
-    height: 40px;
-    left: 0;
-    background-image: repeating-linear-gradient(
-      90deg,
-       #fcae5d ,
-       #fcae5d  40px,
-      white 40px,
-      white 80px
-    );
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
-  &::before {
- bottom: 0;
-    z-index: 1;
-  }
+  &_social {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
 
-  &::after {
-    bottom: 40px; // deuxième ligne décalée
-    background-position: -40px 0; // décalage horizontal
-  }
-}
+    @media screen and (min-width: 768px) {
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      left: 50px;
+      z-index: 1;
+    }
 
-  .social-media-home {
-    @media screen and (max-width: 768px) {
-      margin-top: 50px;
+    svg {
+      width: 30px;
+      height: 30px;
     }
   }
 
-  &-title {
-    color: #000;
+  .deco {
+    &-left {
+      bottom: -25px;
+      left: -25px;
+
+      @media screen and (min-width: 768px) {
+        bottom: -75px;
+        left: -75px;
+      }
+    }
+
+    &-right {
+      top: -25px;
+      right: -25px;
+      
+      @media screen and (min-width: 768px) {
+        top: -75px;
+        right: -45px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    padding-top: 20px;
+  }
+
+  &_images {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    max-width: 80%;
+    margin: auto;
+
+    @media screen and (max-width: 768px) {
+      height: auto;
+      padding-top: 20px;
+      max-width: 100%;
+      flex-direction: column;
+    }
+
+    .banner_image {
+      position: relative;
+    }
+  }
+
+  .en-biais {
+    font-size: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+  }
+
+  &_image {
+    width: 100%;
+
+    img {
+      max-height: 400px;
+    }
+  }
+
+  &_wrapper {
+    z-index: 1;
+    position: relative;  
+
+    &.banner_wrapper_images {
+      &_1,
+      &_2 {
+        .banner_image {
+          &_1 {
+            width: 30%;
+
+            @media screen and (max-width: 768px) {
+              width: 80%;
+            }
+          }
+
+          &_2 {
+            width: 70%;
+            margin-bottom: -100px;
+
+            @media screen and (max-width: 768px) {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &_2 {
+        & .style-button {
+          margin-top: 30px;
+          bottom: 0;
+          right: 50px;
+          z-index: 10;
+
+          @media screen and (min-width: 768px) {
+            position: absolute;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+  } 
+
+  .splide {
+    &__arrows {
+      z-index: 5;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+    }
+  }
+
+  .style-button  {
+    margin-top: 50px;
+  }
+
+  &_title {
+    color: variables.$black;
     font-size: 2rem;
     margin-bottom: 0;
     margin-top: 0;
@@ -54,8 +173,12 @@
     }
   }
 
-  &-text {
-    color: #000;
+  &_cta {
+    margin-top: 50px;
+  }
+
+  &_text {
+    color: variables.$black;
     font-size: 1rem;
 
     @media screen and (min-width: 768px) {
@@ -64,59 +187,94 @@
   }
 
   .logo-fond {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    height: 100%;
-    z-index: 0;
-  }
-
-  .social-icon {
-    display: block;
-    
-    svg{
-      width: 30px;
-      height: 30px;
-    }
-  }
- .deco {
-    position: absolute;
-    width: 100px ;
+    width:70%;
     height: auto;
-    z-index: -1;
-    @media screen and (min-width: 768px) {
-      width: 250px;
-    }
-    &.deco-left3 {
-      top: -70px;
-      left: 0px;
+    filter: opacity(0.5);
+    position: absolute; 
+    z-index: 0;
+    left: 15%;
+  }
 
-      @media screen and (min-width: 768px) {
-        top: -125px;
-        left: -125px;
-      }
+  &_pattern_bottom {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 40px;
+      left: 0;
+      background-image: repeating-linear-gradient(
+        90deg,
+        variables.$orangelight,
+        variables.$orangelight 40px,
+        variables.$white 40px,
+        variables.$white 80px
+      );
     }
 
-    &.deco-right3 {
-      bottom: -125px;
-      right:0px;
-        @media screen and (min-width: 768px) {
-         bottom: -125px;
-         right: -125px;
-      }
+    &::before {
+      bottom: 0;
+      z-index: 1;
+    }
+
+    &::after {
+      bottom: 40px;
+      background-position: -40px 0;
     }
   }
-    &-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+}
+
+
+/*
+.booking {
+  &-form {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    order: 3;
+
+      display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 3px;
-    z-index: 1;
+    gap: 15px;
+    flex-wrap: nowrap;
   }
 
-  &-cta {
-    margin-top: 50px;
+  &-button {
+    flex: none;
+    width: 200px;
+    max-width: 90%;
+    height: 50px;
   }
+}
+
+.input-box {
+  display: none !important;
+  
+  background-color: variables.$white;
+  border: 3px solid variables.$green;
+  gap: 8px;
+
+  i {
+    color: variables.$black;
+  }
+}
+
+.input-box,
+.booking-button {
+  flex: 1 1 150px;
+  height: 50px;
+  min-width: 150px;
+  max-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  border-radius: 3px;
+    background-color: variables.$green;
+  color: variables.$black;
+  border: none;
+  cursor: pointer;
+}*/

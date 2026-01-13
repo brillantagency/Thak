@@ -14,7 +14,7 @@
 <section class="banner banner_pattern_bottom">
   <div class="banner_wrapper container <?php echo !empty($banner_gallery2)? 'banner_wrapper_images_2' : 'banner_wrapper_images_1' ?>">
       <div class="banner_social">
-        <?php include_once(locate_template('parts/components/social.php')); ?>
+        <?php get_template_part('parts/components/social.php'); ?>
       </div>
 
       <div class="banner_content">
