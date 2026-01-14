@@ -37,6 +37,8 @@
     &-media {
       position: relative;
       flex: 1;
+      padding-top: 50px;
+      padding-bottom: 50px;
     }
 
     &-title {
@@ -70,7 +72,7 @@
         transform: rotate(-10deg);
 
       &-media {
-        bottom: -20px;
+        bottom: 20px;
         right: -20px;
       }
 
