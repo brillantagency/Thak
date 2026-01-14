@@ -147,14 +147,14 @@
                 },
                 "layout_682f338f8ffd1": {
                     "key": "layout_682f338f8ffd1",
-                    "name": "block_instagram",
-                    "label": "Instagram",
+                    "name": "block_feed",
+                    "label": "Feed",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_682f338f8ffd3",
-                            "label": "Instagram",
-                            "name": "block_instagram",
+                            "label": "Feed",
+                            "name": "block_feed",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -166,7 +166,7 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_682f3313297f4"
+                                "group_69675c11186ff"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -314,5 +314,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1768231383
+    "modified": 1768381560
 }
