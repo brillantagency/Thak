@@ -46,7 +46,7 @@
         <?php //include_once(locate_template('parts/components/form_newsletter.php')); ?>
 
         <div class="social-media-home">
-          <?php get_template_part('parts/components/social.php'); ?>
+          <?php include(locate_template('parts/components/social.php')); ?>
         </div>
       </div>
   </div>
