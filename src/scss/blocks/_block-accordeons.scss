@@ -5,6 +5,7 @@
     display: flex;
     gap: 20px;
     min-height: 500px;
+    flex-direction: column;
 
     @include tablet {
         align-items: flex-start;
@@ -13,6 +14,11 @@
 
     &.flex_direction{
         &_row  {
+
+            @include tablet {
+                flex-direction: row;
+            }
+
             .accordeons {
                 &_intro,
                 &_repeater {
