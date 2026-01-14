@@ -14,7 +14,7 @@
     $feed_padding = get_sub_field('feed_padding');
     $feed_actif = get_sub_field('feed_actif');
 
-    if($feed_actif and !empty($feed)) :
+    if($feed_actif and !empty($feed_shortcode)) :
 ?>
 
 <div class="block_feed container section_padding_<?php echo $feed_padding; ?>">
