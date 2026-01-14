@@ -3,8 +3,11 @@
 
 .block_text_infinity  {
     overflow: hidden;
-    padding-top: 2vw;
-    padding-bottom: 2vw;
+
+    &.padding_none {
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+    }
 
     .text_infinity {
         overflow: hidden;
