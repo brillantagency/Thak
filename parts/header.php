@@ -94,7 +94,7 @@
           <p><a href="mailto:<?php echo $company_mail ?>"><?php echo $company_mail ?></a></p>
         <?php endif; ?>
           <div class="social-media-home">
-            <?php include_once(locate_template('parts/components/social.php')); ?>
+            <?php include(locate_template('parts/components/social.php')); ?>
           </div>
       </div>
     </div>
