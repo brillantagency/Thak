@@ -3,8 +3,10 @@
 
 .block_text_infinity  {
     overflow: hidden;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
 
-    &.text_infinity {
+    .text_infinity {
         overflow: hidden;
         white-space: nowrap;
         position: relative;
@@ -27,9 +29,7 @@
                 background-color: variables.$orange;
             }
         }
-    }
 
-    .text_infinity {
         &_text,
         &_text_copy {
             width: auto;
