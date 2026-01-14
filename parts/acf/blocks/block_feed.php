@@ -19,7 +19,7 @@
 
 <div class="block_feed container section_padding_<?php echo $feed_padding; ?>">
     <?php if(!empty($feed_title)) : ?>
-    <h2 class="text-align-center"><?php echo $feed_title ; ?></h2>
+    <h2 class="text-align-center margin-none"><?php echo $feed_title ; ?></h2>
     <?php endif; ?>
 
     <?php echo do_shortcode( $feed_shortcode ); ?>
