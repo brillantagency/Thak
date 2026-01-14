@@ -292,7 +292,8 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_68a5f589d8d63",
@@ -385,7 +386,8 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_68a4d3b8a8ff7",
@@ -491,6 +493,45 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_69675c32d3c36",
+            "label": "Block - Feed",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_69675c3ad3c37",
+            "label": "Shortcode",
+            "name": "feed_shortcode",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -511,5 +552,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755707010
+    "display_title": "",
+    "modified": 1768381514
 }
