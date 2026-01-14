@@ -522,7 +522,28 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69676100410b8",
+            "label": "Title",
+            "name": "feed_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "53",
                 "class": "",
                 "id": ""
             },
@@ -553,5 +574,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1768381514
+    "modified": 1768382737
 }
