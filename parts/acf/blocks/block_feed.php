@@ -12,7 +12,7 @@
     if($feed_actif and !empty($feed)) :
 ?>
 
-<div class="block_feed container p-<?php echo $feed_padding; ?>">
+<div class="block_feed container section_padding_<?php echo $feed_padding; ?>">
     <?php echo do_shortcode( $feed ); ?>
 </div>
 <?php endif; ?>
