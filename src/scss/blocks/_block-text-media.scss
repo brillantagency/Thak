@@ -4,7 +4,7 @@
   overflow-x: hidden;
 
   .splide {
-    visibility: visible;
+      visibility: visible;
     
       &__list {
       }
@@ -15,8 +15,11 @@
       }
 
       &__track {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
         &.border-timbre {
-          padding: 29px!important;
+          padding: 6% 3%!important;
         }
       }
   }
