@@ -8,7 +8,7 @@ $banner_content  = get_field('banner_content', 'option');
 $banner_cta      = get_field('banner_cta', 'option');
 ?>
 
-<main class="main" role="main">
+<main class="main page_404" role="main">
     <section class="section_banner container padding_top-bottom text-align-center">
 		<?php if (!empty($banner_suptitle)) : ?>
         <span class="banner_suptitle"><?php echo $banner_suptitle; ?></span>

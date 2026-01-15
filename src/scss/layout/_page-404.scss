@@ -1,0 +1,10 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+.page_404 {
+    padding-top: 50px;
+    
+    .banner_title {
+        color: variables.$orange;
+    }
+}
