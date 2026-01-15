@@ -2,10 +2,6 @@
 @use "../base/mixins" as *;
 
 .columns {
-    &_section {
-        padding: 100px 0;
-    }
-
     &_title {
         margin-bottom: 15px;
     }
@@ -15,21 +11,27 @@
         gap: 40px 20px;
         flex-wrap: wrap;
 
+        &_two .columns_item {
+            @include desktop {
+                width: calc(50% - 15px);
+            }
+        }
+
         &_three .columns_item {
             @include desktop {
-                flex: 0 0 calc(100% / 3 - 13.33px);
+                width: calc(33% - 15px);
             }
         }
 
         &_four .columns_item {
             @include desktop {
-                flex: 0 0 calc(100% / 4 - 13.33px);
+                width: calc(25% - 15px);
             }
         }
 
         &_five .columns_item {
             @include desktop {
-                flex: 0 0 calc(100% / 5 - 13.33px);
+                width: calc(20% - 15px);
             }
         }
     }
