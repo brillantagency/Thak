@@ -2,13 +2,6 @@
 @use "../base/mixins" as *;
 
 .cta {
-    &--btn {
-        padding: 10px;
-        border: 1px solid variables.$green;
-        border-radius: 5px;
-        background-color: variables.$orange;
-    }
-
     &--primary {
         background-color: variables.$yellow;
         font-weight: 500;
@@ -16,8 +9,7 @@
         transform: rotate(-7deg);
         padding: 10px 20px;
         display: flex;
-        color: #000;
-        margin: auto;
+        color: variables.$black;
         animation: shake 3s ease-in-out infinite;
         transition: background-color .5s ease;
         justify-content: center;
@@ -26,6 +18,42 @@
         &:hover {
             transition: background-color .5s ease;
             background-color:variables.$yellow;
+        }
+    }
+
+    &--secondary {
+        padding: 10px;
+        border: 1px solid variables.$orange;
+        border-radius: 5px;
+        display: inline-block;
+        color: variables.$white;
+        background-color: variables.$orange;
+
+        &:hover {
+            background-color: variables.$black;
+            border-color: variables.$black;
+            color: variables.$white;
+        }
+    }
+
+    &--border {
+        background: variables.$white;
+        color: variables.$black;
+        font-weight: bold;
+        padding: 15px 25px;
+        border: 5px solid variables.$orange;
+        border-radius: 50rem;
+        z-index: 5;
+        display: inline-block;
+        margin: 10px 0;
+        box-shadow:
+            0 0 0 2px variables.$yellow,   
+            0 0 0 6px variables.$orange,
+            0 0 0 10px #b72e00;
+
+        &:hover {
+            padding-left: 40px;
+            padding-right: 40px;
         }
     }
 

@@ -1,0 +1,64 @@
+@use "../base/variables" as variables;
+@use "../base/mixins" as *;
+
+.columns {
+    &_section {
+        padding: 100px 0;
+    }
+
+    &_title {
+        margin-bottom: 15px;
+    }
+
+    &_repeater {
+        display: flex;
+        gap: 40px 20px;
+        flex-wrap: wrap;
+
+        &_three .columns_item {
+            @include desktop {
+                flex: 0 0 calc(100% / 3 - 13.33px);
+            }
+        }
+
+        &_four .columns_item {
+            @include desktop {
+                flex: 0 0 calc(100% / 4 - 13.33px);
+            }
+        }
+
+        &_five .columns_item {
+            @include desktop {
+                flex: 0 0 calc(100% / 5 - 13.33px);
+            }
+        }
+    }
+
+    &_item {
+        width: 100%;
+
+        @include tablet {
+            flex: 0 0 calc(50% - 10px);
+        }
+
+        &_img_wrapper {
+            height: 250px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        &_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &_title {
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 159%;
+            margin-bottom: 15px;
+        }
+    }
+}

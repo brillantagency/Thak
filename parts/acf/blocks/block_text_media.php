@@ -110,7 +110,7 @@ if($text_media_actif) :
           <?php endif; ?>
 
           <?php if (!empty($text_media_link)) : ?>
-            <a href="<?php echo $text_media_link['url']; ?>" <?php echo !empty($text_media_link['target'])? 'target="_blank"' : '' ?> class="style-button"><?php echo $text_media_link['title']; ?></a>
+            <a href="<?php echo $text_media_link['url']; ?>" <?php echo !empty($text_media_link['target'])? 'target="_blank"' : '' ?> class="cta--border"><?php echo $text_media_link['title']; ?></a>
           <?php endif; ?>
         </div>
       </div>
