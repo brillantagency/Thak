@@ -31,7 +31,7 @@
         <?php endif; ?>
 
         <?php if(!empty($accordeons_cta)) :  ?>
-        <a href="<?php echo $accordeons_cta['url']; ?>" <?php echo $accordeons_cta['target']? 'target="_blank" rel="noopener noreferrer"' : ''; ?> class="cta-"><?php echo $accordeons_cta['title']; ?></a>
+        <a href="<?php echo $accordeons_cta['url']; ?>" <?php echo $accordeons_cta['target']? 'target="_blank" rel="noopener noreferrer"' : ''; ?> class="cta--border"><?php echo $accordeons_cta['title']; ?></a>
         <?php endif; ?>
     </div>
 
