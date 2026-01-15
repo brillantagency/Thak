@@ -155,27 +155,6 @@ img {
     max-height: 50px;
 }
 
-.style-button {
-    background: variables.$white;
-    color: variables.$black;
-    font-weight: bold;
-    padding: 15px 25px;
-    border: 5px solid variables.$orange;
-    border-radius: 50rem;
-    z-index: 5;
-    display: inline-block;
-    margin: 10px 0;
-    box-shadow:
-        0 0 0 2px variables.$yellow,   
-        0 0 0 6px variables.$orange,
-        0 0 0 10px #b72e00;
-
-    &:hover {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-}
-
 .en-biais {
     display: inline-block;
     color: variables.$green;

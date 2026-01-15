@@ -23,7 +23,7 @@ $banner_cta      = get_field('banner_cta', 'option');
 		<?php endif; ?>
 		
 		<?php if (!empty($banner_cta['url'])) : ?>
-            <a href="<?php echo $banner_cta['url']; ?>" <?php echo !empty($banner_cta['target'])? 'target="_blank"' : '' ?> class="style-button"><?php echo $banner_cta['title']; ?></a>
+            <a href="<?php echo $banner_cta['url']; ?>" <?php echo !empty($banner_cta['target'])? 'target="_blank"' : '' ?> class="cta--border"><?php echo $banner_cta['title']; ?></a>
 		<?php endif; ?>
 		
     </section>

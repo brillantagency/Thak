@@ -50,7 +50,7 @@ if ($testimonial_query->have_posts()) :
         <?php endif; ?>
 
         <?php if(!empty($testimonials_cta['url']) ) : ?>
-        <button role="button" href="<?php echo $testimonials_cta['url']; ?>" <?php echo !empty($testimonials_cta['target']) ? 'target="_blank"' : ''; ?> class="testimonials-cta style-button">
+        <button role="button" href="<?php echo $testimonials_cta['url']; ?>" <?php echo !empty($testimonials_cta['target']) ? 'target="_blank"' : ''; ?> class="testimonials-cta cta--border">
             <?php echo $testimonials_cta['title']; ?>
         </a>
         <?php endif; ?>

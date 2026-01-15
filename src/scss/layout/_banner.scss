@@ -48,7 +48,7 @@
     }
   }
 
-  .style-button {
+  .cta--border {
     position: relative;
     z-index: 4;
   }
@@ -143,7 +143,7 @@
       }
 
       &_2 {
-        & .style-button {
+        & .cta--border {
           margin-top: 30px;
           bottom: 0;
           z-index: 10;
@@ -174,7 +174,7 @@
     }
   }
 
-  .style-button  {
+  .cta--border {
     margin-top: 50px;
   }
 
