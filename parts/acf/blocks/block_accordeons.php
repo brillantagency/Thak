@@ -30,11 +30,9 @@
         <div class="accordeons_text"><?php echo $accordeons_text; ?></div>
         <?php endif; ?>
 
-        <?php if(!empty($accordeons_cta)):
-            $cta = $accordeons_cta;
-            $cta_style = $accordeons_link_style;
-            include get_template_directory() . '/parts/components/cta.php';
-        endif; ?>
+        <?php if(!empty($accordeons_cta)) :  ?>
+        <a href="<?php echo $accordeons_cta['url']; ?>" <?php echo $accordeons_cta['target']? 'target="_blank" rel="noopener noreferrer"' : ''; ?> class="cta-"><?php echo $accordeons_cta['title']; ?></a>
+        <?php endif; ?>
     </div>
 
     <div class="accordeons_repeater">
